@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
+import { Header } from './components/common';
+import LibraryList from './components/LibraryList';
 
-class App extends Component {
-	render() {
-		return (
-			<View>
-				<Text>Starting a new app!</Text>
-			</View>
-		);
-	}
-}
+const App = () => (
+	// Purpose of the provider is to translate the data in the store
+	// into something that can be used by the React side of the app
+
+	// Store is the container that holds the state and the provider
+	// communicates w/ React
+	<Provider store={createStore(reducers)}>
+		<View>
+			<Header headerText="Tech Stack" />
+			<LibraryList />
+		</View>
+	</Provider>
+);
 
 export default App;
