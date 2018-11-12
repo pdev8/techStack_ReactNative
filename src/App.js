@@ -13,7 +13,7 @@ const App = () => (
 	// Store is the container that holds the state and the provider
 	// communicates w/ React
 	<Provider store={createStore(reducers)}>
-		<View>
+		<View style={{ flex: 1 }}>
 			<Header headerText="Tech Stack" />
 			<LibraryList />
 		</View>
